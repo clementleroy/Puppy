@@ -10,14 +10,14 @@ public protocol Loggerable {
 
 open class BaseLogger: Loggerable {
 
-    public var enabled: Bool = true
-    public var logLevel: LogLevel = .trace
+    open var enabled: Bool = true
+    open var logLevel: LogLevel = .trace
 
-    public func isLogging(_ level: LogLevel) -> Bool {
+    open func isLogging(_ level: LogLevel) -> Bool {
         return level.rawValue >= logLevel.rawValue
     }
 
-    public var format: LogFormattable?
+    open var format: LogFormattable?
 
     @inlinable
     func formatMessage(_ level: LogLevel, message: String, tag: String, function: String, file: String, line: UInt, swiftLogInfo: [String: String], label: String, date: Date, threadID: UInt64) {
@@ -47,7 +47,7 @@ open class BaseLogger: Loggerable {
         self.queue = asynchronous ? DispatchQueue(label: label) : nil
     }
 
-    public func log(_ level: LogLevel, string: String) {
+    open func log(_ level: LogLevel, string: String) {
 
     }
 }
