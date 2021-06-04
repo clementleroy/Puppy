@@ -8,7 +8,7 @@ public protocol Loggerable {
     func log(_ level: LogLevel, string: String)
 }
 
-public class BaseLogger: Loggerable {
+open class BaseLogger: Loggerable {
 
     public var enabled: Bool = true
     public var logLevel: LogLevel = .trace
